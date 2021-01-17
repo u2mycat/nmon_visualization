@@ -1,0 +1,82 @@
+$def with (c,recent,res)
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="static/plugins/echart.js/echarts.min.js"></script>
+    <script type="text/javascript" src="static/plugins/base64.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="static/css/main.css" />
+    <title>nmon性能数据可视化工具</title>
+</head>
+
+<body>
+    <div id="mask" class="mask"></div>
+    <div id="tip" class="tip">
+        <img src="static/img/loading.svg" />
+    </div>
+    <div class="banner">
+        <div class="logo logo-nomal left">nmon性能数据可视化工具</div>
+        <!-- <div class="left">
+            <form method="POST" enctype="multipart/form-data" action="">
+                <input id="text" class="text" type="text" placeholder="本地nmon文件路径" name="src">
+                <input type="submit" value="分析">
+            </form>
+        </div> -->
+    </div>
+    <div class="main">
+        <div id="menu" class="menu menu-nomal">
+            <input id='recent' value="$recent" style="display: none;"> 
+            $for i in res:
+                <div tag="fold" class="nav-item">
+                    <div class="nav-title">$i</div>
+                    <div class="nav-content hide">
+                        <ul>
+                            $for j in res[i]:
+                            <li class="litem"><a class="aitem" href="javascript:;" item-data="$i:$j">20$j[0]$j[1]/$j[2]$j[3]/$j[4]$j[5]</a></li>
+                        </ul>
+                    </div>
+                </div>
+        </div>
+        <div class="content content-nomal">
+            <div id="echart" style="height: 100%;" class="echart-container">
+                <div id="container" style="height: 100%;">
+                </div>
+            </div>
+        </div>
+        <div class="option">
+            <div class="op-content">
+                $if c:
+                    <p>本地nmon文件</p>
+                    <input id="src" class="local-url" type="text" placeholder="本地nmon文件路径" name="src" /><input id='local-sub' class="local-sub btn" type="submit" value="分析" />
+                    <br>
+                    <span>多个文件使用'|'隔开，支持遍历目录下全部nmon文件
+                        <br>· /tmp/nmon/
+                        <br>· /tmp/nmon/hostname-190101-0000.nmon
+                        <br>· D:\hostname-190101-0000.nmon
+                        <br>推荐单个文件分析
+                    </span> 
+                $else:
+                    <input id="src" style="display: none;" /><input id='local-sub' style="display: none;" />
+
+                <p>获取远程服务器nmon文件</p>
+                <p><input id="ip" class="ip" type="text" placeholder="IP" name="ip" /><input id="port" class="port" type="text" placeholder="PORT" name="port" value="22" /></p>
+                <p><input id="path" type="text" placeholder="nmon文件路径" name="path" />
+                    <br><span>支持Linux
+                        shell正则，慎用正则，禁止输入' & | ; '等字符<br>· /tmp/nmon/*<br>· /tmp/nmon/hostname-190101-0000.nmon<br>· /tmp/nmon/hostname-1901*-0000.nmon<br>· /tmp/nmon/hostname-19010[1-5]*-0000.nmon<br>· /tmp/nmon/*200101*.nmon</span>
+                </p>
+                <p><input id="username" type="text" placeholder="用户" name="username" value="root" /></p>
+                <p><input id="password" type="password" placeholder="口令" name="password" /></p>
+                <span id="warning"></span>
+                <p><input id="get" class="btn" type="submit" value="获取" /></p>
+                <p class="copyright"><a href="https://github.com/u2mycat/nmon_visualization" target="_Blank">© wuhalo@live.com</a></p>
+            </div>
+        </div>
+</body>
+
+<script type="text/javascript" src="static/js/hi.js"></script>
+<script type="text/javascript" src="static/js/main.js"></script>
+
+</html>
