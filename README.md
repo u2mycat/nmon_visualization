@@ -2,7 +2,7 @@
 
 用于提取nmon文件中记录的性能数据，通过chart在浏览器中展示，适用于系统运维人员。目前仅对AIX系统nmon文件进行测试，Linux下nmon文件未测试。
 
-![avatar](https://github.com/CISUMEVOLI/nmon_visualization/blob/master/main.png)
+![avatar](https://github.com/u2mycat/nmon_visualization/blob/master/main.png)
 
 工具后端使用python编写，主要用到 [web.py](https://webpy.org/) web框架，前端使用html，调用 [echart.js](https://echarts.apache.org/zh/index.html) \\ [base64.js](https://github.com/dankogai/js-base64)
 
