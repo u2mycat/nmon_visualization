@@ -4,7 +4,7 @@
 
 ![avatar](https://github.com/u2mycat/nmon_visualization/blob/master/main.png)
 
-工具后端使用python编写，主要用到 [web.py](https://webpy.org/) web框架，前端使用html，调用 [echart.js](https://echarts.apache.org/zh/index.html) \\ [base64.js](https://github.com/dankogai/js-base64)
+后端： [web.py](https://webpy.org/)，前端： [echart.js](https://echarts.apache.org/zh/index.html) \\ [base64.js](https://github.com/dankogai/js-base64)
 
 ### 环境
     
@@ -27,7 +27,7 @@
 
 > 浏览器中打开地址 127.0.0.1:80/chart
 
-开发过程仅使用chrome调试，考虑兼容性推荐使用chrome打开
+仅使用chrome调试，考虑兼容性推荐使用chrome打开
 
 通过修改run.py中url配置来改变地址映射关系
 
